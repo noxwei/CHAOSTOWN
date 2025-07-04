@@ -38,10 +38,11 @@ curl -X POST http://localhost:8000/simulation/start
 # Watch the magic
 open http://localhost:3000
 
-# 🆕 NEW: Test mathematical language evolution
-git checkout linguistic
-cd sim-engine && python3 linguistic_agent.py
-# Watch 8 agents develop deterministic alien dot languages!
+# 🆕 NEW: Real-time alien language evolution dashboard!
+# Click "🛸 Alien Languages" tab to see:
+# - Live dot pattern communications
+# - Linguistic development stages
+# - Real-time WebSocket feeds of alien consciousness!
 
 # 🧪 ADVANCED: Test environmental scenarios
 python3 language_explorer.py

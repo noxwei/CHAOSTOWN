@@ -69,9 +69,18 @@ curl -s http://localhost:8000/agents | jq '.agents[0]'
 
 ### Step 5: Access Dashboards (30 seconds)
 ```bash
-# Open dashboards
-open http://localhost:3000    # Main dashboard
-open http://localhost:3000/grafana  # Metrics (admin/admin)
+# Open main dashboard
+open http://localhost:3000    # CHAOSTOWN Dashboard
+
+# 🆕 NEW: Watch alien language evolution LIVE!
+# Click "🛸 Alien Languages" tab to see:
+# - Real-time dot pattern communications
+# - Agent linguistic development stages  
+# - Complexity evolution charts
+# - Live WebSocket feeds
+
+# Optional: Metrics dashboard
+open http://localhost:3001    # Grafana (admin/admin)
 ```
 
 ## ✅ Verification Checklist

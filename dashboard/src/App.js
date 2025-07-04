@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import styled from 'styled-components';
+import LinguisticDashboard from './components/LinguisticDashboard';
 
 const Container = styled.div`
   min-height: 100vh;
@@ -25,6 +26,29 @@ const Subtitle = styled.p`
   font-size: 1.2rem;
   margin: 0.5rem 0;
   opacity: 0.9;
+`;
+
+const TabContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin: 1rem 0;
+`;
+
+const Tab = styled.button`
+  background: ${props => props.active ? 'rgba(255, 255, 255, 0.3)' : 'rgba(255, 255, 255, 0.1)'};
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 0.75rem 1.5rem;
+  border-radius: 25px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  
+  &:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+  }
 `;
 
 const Dashboard = styled.div`
@@ -140,6 +164,7 @@ function App() {
   const [agents, setAgents] = useState([]);
   const [selectedFile, setSelectedFile] = useState(null);
   const [status, setStatus] = useState('Loading...');
+  const [activeTab, setActiveTab] = useState('overview');
 
   const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:8000';
 
@@ -236,91 +261,110 @@ function App() {
         <StatusIndicator status={status === 'Connected' ? 'healthy' : 'error'}>
           {status}
         </StatusIndicator>
+        
+        <TabContainer>
+          <Tab 
+            active={activeTab === 'overview'} 
+            onClick={() => setActiveTab('overview')}
+          >
+            🏠 Overview
+          </Tab>
+          <Tab 
+            active={activeTab === 'linguistic'} 
+            onClick={() => setActiveTab('linguistic')}
+          >
+            🛸 Alien Languages
+          </Tab>
+        </TabContainer>
       </Header>
 
-      <Dashboard>
-        <Card>
-          <CardTitle>😻 Cat Happiness</CardTitle>
-          <Metric>
-            <MetricValue color={getHappinessColor(stats.cat_happiness)}>
-              {((stats.cat_happiness || 0) * 100).toFixed(1)}%
-            </MetricValue>
-            <MetricLabel>
-              {stats.cat_happiness >= 0.8 ? 'Excellent!' : 'Needs Attention!'}
-            </MetricLabel>
-          </Metric>
-        </Card>
+      {activeTab === 'overview' && (
+        <Dashboard>
+          <Card>
+            <CardTitle>😻 Cat Happiness</CardTitle>
+            <Metric>
+              <MetricValue color={getHappinessColor(stats.cat_happiness)}>
+                {((stats.cat_happiness || 0) * 100).toFixed(1)}%
+              </MetricValue>
+              <MetricLabel>
+                {stats.cat_happiness >= 0.8 ? 'Excellent!' : 'Needs Attention!'}
+              </MetricLabel>
+            </Metric>
+          </Card>
 
-        <Card>
-          <CardTitle>🤖 Active Agents</CardTitle>
-          <Metric>
-            <MetricValue color="#4ECDC4">
-              {stats.agent_count || 0}
-            </MetricValue>
-            <MetricLabel>Digital Citizens</MetricLabel>
-          </Metric>
-        </Card>
+          <Card>
+            <CardTitle>🤖 Active Agents</CardTitle>
+            <Metric>
+              <MetricValue color="#4ECDC4">
+                {stats.agent_count || 0}
+              </MetricValue>
+              <MetricLabel>Digital Citizens</MetricLabel>
+            </Metric>
+          </Card>
 
-        <Card>
-          <CardTitle>🎮 Simulation</CardTitle>
-          <Metric>
-            <StatusIndicator status={stats.simulation_running ? 'healthy' : 'error'}>
-              {stats.simulation_running ? 'Running' : 'Paused'}
-            </StatusIndicator>
-            <div>
-              <Button onClick={startSimulation}>Start</Button>
-              <Button onClick={pauseSimulation}>Pause</Button>
-            </div>
-          </Metric>
-        </Card>
+          <Card>
+            <CardTitle>🎮 Simulation</CardTitle>
+            <Metric>
+              <StatusIndicator status={stats.simulation_running ? 'healthy' : 'error'}>
+                {stats.simulation_running ? 'Running' : 'Paused'}
+              </StatusIndicator>
+              <div>
+                <Button onClick={startSimulation}>Start</Button>
+                <Button onClick={pauseSimulation}>Pause</Button>
+              </div>
+            </Metric>
+          </Card>
 
-        <Card>
-          <CardTitle>📸 Upload Cat Media</CardTitle>
-          <UploadSection>
-            <div>Boost happiness by uploading cat photos!</div>
-            <FileInput
-              type="file"
-              accept="image/*"
-              onChange={(e) => setSelectedFile(e.target.files[0])}
-            />
-            <div>
-              <Button onClick={handleFileUpload} disabled={!selectedFile}>
-                Upload Photo 📷
+          <Card>
+            <CardTitle>📸 Upload Cat Media</CardTitle>
+            <UploadSection>
+              <div>Boost happiness by uploading cat photos!</div>
+              <FileInput
+                type="file"
+                accept="image/*"
+                onChange={(e) => setSelectedFile(e.target.files[0])}
+              />
+              <div>
+                <Button onClick={handleFileUpload} disabled={!selectedFile}>
+                  Upload Photo 📷
+                </Button>
+              </div>
+            </UploadSection>
+          </Card>
+
+          <Card>
+            <CardTitle>🐾 Agent Control</CardTitle>
+            <Metric>
+              <Button onClick={initializeAgents}>
+                Initialize Agents
               </Button>
-            </div>
-          </UploadSection>
-        </Card>
+              <MetricLabel>
+                Creates 10 cat citizens
+              </MetricLabel>
+            </Metric>
+          </Card>
 
-        <Card>
-          <CardTitle>🐾 Agent Control</CardTitle>
-          <Metric>
-            <Button onClick={initializeAgents}>
-              Initialize Agents
-            </Button>
-            <MetricLabel>
-              Creates 10 cat citizens
-            </MetricLabel>
-          </Metric>
-        </Card>
-
-        <Card>
-          <CardTitle>👥 Agent Population</CardTitle>
-          <AgentList>
-            {agents.length > 0 ? (
-              agents.map(agent => (
-                <Agent key={agent.id}>
-                  <div><strong>{agent.name}</strong></div>
-                  <div>Type: {agent.type}</div>
-                  <div>Happiness: {(agent.happiness * 100).toFixed(0)}%</div>
-                  <div>Energy: {(agent.energy * 100).toFixed(0)}%</div>
-                </Agent>
-              ))
-            ) : (
-              <div>No agents initialized yet</div>
-            )}
-          </AgentList>
-        </Card>
-      </Dashboard>
+          <Card>
+            <CardTitle>👥 Agent Population</CardTitle>
+            <AgentList>
+              {agents.length > 0 ? (
+                agents.map(agent => (
+                  <Agent key={agent.id}>
+                    <div><strong>{agent.name}</strong></div>
+                    <div>Type: {agent.type}</div>
+                    <div>Happiness: {(agent.happiness * 100).toFixed(0)}%</div>
+                    <div>Energy: {(agent.energy * 100).toFixed(0)}%</div>
+                  </Agent>
+                ))
+              ) : (
+                <div>No agents initialized yet</div>
+              )}
+            </AgentList>
+          </Card>
+        </Dashboard>
+      )}
+      
+      {activeTab === 'linguistic' && <LinguisticDashboard />}
     </Container>
   );
 }
