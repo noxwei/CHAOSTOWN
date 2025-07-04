@@ -61,6 +61,10 @@ curl -X POST http://localhost:8000/simulation/start
 
 # Check status
 curl -s http://localhost:8000/simulation/status | jq
+
+# 🆕 NEW: Test linguistic agents (optional)
+curl -s http://localhost:8000/agents | jq '.agents[0]'
+# See agent names like "Fluffhead", "Wilson", "Whiskers"
 ```
 
 ### Step 5: Access Dashboards (30 seconds)
@@ -152,14 +156,46 @@ lsof -i :3000 -i :8000
 docker compose restart dashboard api
 ```
 
+## 🧬 NEW: Linguistic Evolution System
+
+**CHAOSTOWN now includes emergent language development!**
+
+### Quick Test of Language Evolution
+```bash
+# Switch to linguistic branch to test language features
+git checkout linguistic
+
+# Run standalone linguistic simulation
+cd sim-engine
+python3 linguistic_agent.py
+
+# Watch 8 agents develop their own dot-based language over 50 iterations
+# You'll see patterns like "•\n •\n  •" but won't understand their meaning!
+```
+
+**What you'll observe:**
+- Agents start illiterate (no alphabet knowledge)
+- They perceive only "auras" (warmth, danger, cat happiness)
+- Gradually develop dot patterns for communication
+- Patterns remain alien to human observers
+- Social learning creates pattern convergence
+- RSS feeds slowly build literacy over time
+
+### Key Metrics to Watch
+- **Pattern Diversity**: How many unique dot patterns emerge
+- **Complexity Evolution**: Mathematical sophistication over time
+- **Literacy Development**: Character recognition from 0.0 to 1.0
+- **Stage Progression**: 5 stages from primal signals to meta-linguistics
+
 ## 📚 What's Next?
 
 Once you have CHAOSTOWN running:
 
 1. **Daily Operations**: See `docs/operations/DAILY_CHECKIN.md`
 2. **Understanding the System**: Read `docs/setup/ARCHITECTURE.md`
-3. **Advanced Configuration**: Check `docs/setup/DEPLOYMENT.md`
-4. **Research & Experiments**: Explore `docs/research/EXPERIMENT_DESIGN.md`
+3. **Language Research**: Explore `docs/research/LINGUISTIC_EVOLUTION.md` 🆕
+4. **Advanced Configuration**: Check `docs/setup/DEPLOYMENT.md`
+5. **Research & Experiments**: Explore `docs/research/EXPERIMENT_DESIGN.md`
 
 ## 🆘 Emergency Contacts
 

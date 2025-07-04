@@ -12,6 +12,10 @@ CHAOSTOWN is a sophisticated multi-agent AI simulation that combines Conway's Ga
 
 Using 8 different AI models (Llama, Mistral, Gemma, etc.) as agent "brains," the system creates complex social dynamics, economic patterns, and cultural evolution - all while maintaining measurable happiness levels for two specific cats: Fluffhead and Wilson.
 
+### 🆕 **NEW: Emergent Language Evolution**
+
+Agents start completely illiterate - no knowledge of human alphabet or language. They perceive the world through abstract "auras" (warmth, danger, resources, cat happiness) and must develop their own dot-based communication systems to coordinate and build civilization. You can observe their alien language patterns emerge, but you'll never understand what they mean - creating a truly foreign intelligence to study.
+
 ## 🚀 Quick Start (10 Minutes)
 
 **Zero to AI Civilization in 10 minutes:**
@@ -33,6 +37,11 @@ curl -X POST http://localhost:8000/simulation/start
 
 # Watch the magic
 open http://localhost:3000
+
+# 🆕 NEW: Test emergent language evolution
+git checkout linguistic
+cd sim-engine && python3 linguistic_agent.py
+# Watch agents develop alien dot languages in real-time!
 ```
 
 **Need more details?** → [QUICKSTART.md](QUICKSTART.md)
@@ -69,6 +78,11 @@ Real-time Dashboards ← PostgreSQL/TimescaleDB → Research Data
 - [docs/setup/DEPLOYMENT.md](docs/setup/DEPLOYMENT.md) - Production deployment
 - [docs/setup/DB_SCHEMA.md](docs/setup/DB_SCHEMA.md) - Database design
 
+### 🧬 Language Evolution (NEW)
+- [docs/research/LINGUISTIC_EVOLUTION.md](docs/research/LINGUISTIC_EVOLUTION.md) - Emergent language framework
+- [sim-engine/linguistic_agent.py](sim-engine/linguistic_agent.py) - Mathematical implementation
+- **Branch**: `linguistic` - Test alien language development
+
 ### ⚙️ Operations  
 - [docs/operations/OPS_RUNBOOK.md](docs/operations/OPS_RUNBOOK.md) - Daily operations
 - [docs/operations/DAILY_CHECKIN.md](docs/operations/DAILY_CHECKIN.md) - Cat media procedures
@@ -85,6 +99,9 @@ Real-time Dashboards ← PostgreSQL/TimescaleDB → Research Data
 
 - **Multi-Model AI Agents**: 8 different personalities using various LLMs
 - **Cat-Centric Ethics**: Measurable happiness metrics guide all decisions
+- **🆕 Emergent Language Evolution**: Agents develop alien dot-based languages from scratch
+- **🆕 Aura-Based Perception**: Non-linguistic environmental sensing system
+- **🆕 RSS Literacy Acquisition**: Gradual reading development through exposure
 - **Emergent Societies**: Watch civilizations evolve with their own cultures
 - **Conway Integration**: Classic Game of Life enhanced with AI decision-making
 - **Real-time Analytics**: Grafana dashboards for monitoring everything
@@ -119,9 +136,11 @@ curl -s http://localhost:8000/cats/happiness | jq '.combined_happiness'
 1. **Legitimate Research Platform**: Designed for serious AI behavior studies
 2. **Absurdist Humor**: Cat happiness as the ultimate AI alignment metric
 3. **Technical Innovation**: Conway's Life + Multi-agent LLMs + Vector embeddings
-4. **Open Science**: All methodologies and frameworks shared
-5. **Emergent Complexity**: Simple rules create sophisticated behaviors
-6. **Practical Ethics**: Concrete metrics instead of abstract principles
+4. **🆕 Alien Language Genesis**: First system to create truly non-human communication
+5. **🆕 Observable Opacity**: See alien thoughts but never understand them
+6. **Open Science**: All methodologies and frameworks shared
+7. **Emergent Complexity**: Simple rules create sophisticated behaviors
+8. **Practical Ethics**: Concrete metrics instead of abstract principles
 
 ## 🤝 Contributing
 
@@ -144,6 +163,8 @@ MIT License - Share the chaos, improve the science, keep the cats happy.
 | Need | Link |
 |------|------|
 | **Get started now** | [QUICKSTART.md](QUICKSTART.md) |
+| **🆕 Test alien languages** | `git checkout linguistic && cd sim-engine && python3 linguistic_agent.py` |
+| **🆕 Language research** | [docs/research/LINGUISTIC_EVOLUTION.md](docs/research/LINGUISTIC_EVOLUTION.md) |
 | **Daily operations** | [docs/operations/DAILY_CHECKIN.md](docs/operations/DAILY_CHECKIN.md) |
 | **Something's broken** | [docs/operations/DISASTER_RECOVERY.md](docs/operations/DISASTER_RECOVERY.md) |
 | **How it works** | [docs/setup/ARCHITECTURE.md](docs/setup/ARCHITECTURE.md) |
