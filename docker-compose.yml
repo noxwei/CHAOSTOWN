@@ -1,0 +1,141 @@
+version: '3.8'
+
+services:
+  # PostgreSQL Database
+  db:
+    image: postgres:15
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:-chaostown}
+      POSTGRES_USER: ${POSTGRES_USER:-postgres}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-chaostown_password}
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./logs/db:/var/log/postgresql
+    ports:
+      - "5432:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-postgres}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # Ollama AI Models
+  ollama:
+    image: ollama/ollama:latest
+    volumes:
+      - ollama_data:/root/.ollama
+    ports:
+      - "11434:11434"
+    environment:
+      - OLLAMA_HOST=0.0.0.0
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:11434/api/tags"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  # FastAPI Backend
+  api:
+    build: ./api
+    ports:
+      - "${API_PORT:-8000}:8000"
+    environment:
+      - POSTGRES_HOST=db
+      - POSTGRES_PORT=5432
+      - POSTGRES_DB=${POSTGRES_DB:-chaostown}
+      - POSTGRES_USER=${POSTGRES_USER:-postgres}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD:-chaostown_password}
+      - OLLAMA_HOST=ollama
+      - OLLAMA_PORT=11434
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+      - MIN_CAT_HAPPINESS=${MIN_CAT_HAPPINESS:-0.8}
+    volumes:
+      - ./api:/app
+      - media_storage:/app/media
+    depends_on:
+      db:
+        condition: service_healthy
+      ollama:
+        condition: service_healthy
+    restart: unless-stopped
+
+  # Simulation Engine
+  sim-engine:
+    build: ./sim-engine
+    environment:
+      - POSTGRES_HOST=db
+      - POSTGRES_PORT=5432
+      - POSTGRES_DB=${POSTGRES_DB:-chaostown}
+      - POSTGRES_USER=${POSTGRES_USER:-postgres}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD:-chaostown_password}
+      - OLLAMA_HOST=ollama
+      - OLLAMA_PORT=11434
+      - SIMULATION_TICK_RATE=${SIMULATION_TICK_RATE:-1.0}
+      - MAX_AGENTS=${MAX_AGENTS:-100}
+    volumes:
+      - ./sim-engine:/app
+    depends_on:
+      db:
+        condition: service_healthy
+      ollama:
+        condition: service_healthy
+    restart: unless-stopped
+
+  # Dashboard Frontend
+  dashboard:
+    build: ./dashboard
+    ports:
+      - "${DASHBOARD_PORT:-3000}:3000"
+    environment:
+      - REACT_APP_API_URL=http://localhost:${API_PORT:-8000}
+    volumes:
+      - ./dashboard:/app
+      - /app/node_modules
+    depends_on:
+      - api
+    restart: unless-stopped
+
+  # Grafana Monitoring
+  grafana:
+    image: grafana/grafana:latest
+    ports:
+      - "3001:3000"
+    environment:
+      - GF_SECURITY_ADMIN_PASSWORD=admin
+      - GF_INSTALL_PLUGINS=grafana-clock-panel,grafana-piechart-panel
+    volumes:
+      - grafana_data:/var/lib/grafana
+      - ./dashboards:/etc/grafana/provisioning/dashboards
+    depends_on:
+      - db
+    restart: unless-stopped
+
+  # Model Initialization Service
+  model-init:
+    image: ollama/ollama:latest
+    depends_on:
+      ollama:
+        condition: service_healthy
+    volumes:
+      - ollama_data:/root/.ollama
+    entrypoint: |
+      sh -c "
+        ollama pull llama3.1:8b
+        ollama pull mistral:7b
+        ollama pull codellama:7b
+        echo 'Models initialized successfully'
+      "
+    restart: "no"
+
+volumes:
+  postgres_data:
+  ollama_data:
+  grafana_data:
+  media_storage:
