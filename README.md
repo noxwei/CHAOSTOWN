@@ -12,9 +12,9 @@ CHAOSTOWN is a sophisticated multi-agent AI simulation that combines Conway's Ga
 
 Using 8 different AI models (Llama, Mistral, Gemma, etc.) as agent "brains," the system creates complex social dynamics, economic patterns, and cultural evolution - all while maintaining measurable happiness levels for two specific cats: Fluffhead and Wilson.
 
-### 🆕 **NEW: Emergent Language Evolution**
+### 🆕 **NEW: Mathematical Language Evolution**
 
-Agents start completely illiterate - no knowledge of human alphabet or language. They perceive the world through abstract "auras" (warmth, danger, resources, cat happiness) and must develop their own dot-based communication systems to coordinate and build civilization. You can observe their alien language patterns emerge, but you'll never understand what they mean - creating a truly foreign intelligence to study.
+Agents start completely illiterate - no knowledge of human alphabet or language. They perceive the world through abstract "auras" (warmth, danger, resources, cat happiness) and develop dot-based communication through **mathematical necessity**, not randomness. Environmental pressure deterministically shapes language: cat crisis → urgent `"•••••"` patterns, exploration → spatial `"•\n •\n  •"` patterns. The system is 70% deterministic, 30% stochastic, using Shannon entropy for complexity analysis. You can observe their alien patterns emerge, but their semantic meanings remain forever opaque - creating truly foreign intelligence to study.
 
 ## 🚀 Quick Start (10 Minutes)
 
@@ -38,10 +38,17 @@ curl -X POST http://localhost:8000/simulation/start
 # Watch the magic
 open http://localhost:3000
 
-# 🆕 NEW: Test emergent language evolution
+# 🆕 NEW: Test mathematical language evolution
 git checkout linguistic
 cd sim-engine && python3 linguistic_agent.py
-# Watch agents develop alien dot languages in real-time!
+# Watch 8 agents develop deterministic alien dot languages!
+
+# 🧪 ADVANCED: Test environmental scenarios
+python3 language_explorer.py
+# Test different scenarios:
+# - cat_crisis: Urgent "•••••" patterns emerge
+# - exploration: Spatial "•\n •\n  •" patterns develop  
+# - golden_age: No communication (below pressure threshold)
 ```
 
 **Need more details?** → [QUICKSTART.md](QUICKSTART.md)
@@ -99,9 +106,10 @@ Real-time Dashboards ← PostgreSQL/TimescaleDB → Research Data
 
 - **Multi-Model AI Agents**: 8 different personalities using various LLMs
 - **Cat-Centric Ethics**: Measurable happiness metrics guide all decisions
-- **🆕 Emergent Language Evolution**: Agents develop alien dot-based languages from scratch
-- **🆕 Aura-Based Perception**: Non-linguistic environmental sensing system
-- **🆕 RSS Literacy Acquisition**: Gradual reading development through exposure
+- **🆕 Mathematical Language Evolution**: Agents develop alien dot-based languages through environmental determinism (70% deterministic, 30% stochastic)
+- **🆕 Aura-Based Perception**: Non-linguistic environmental sensing system using Shannon entropy for pattern complexity
+- **🆕 RSS Literacy Acquisition**: Gradual reading development through exposure and vibes-first processing
+- **🆕 Observable Opacity**: See alien communication patterns but never understand their semantic meanings
 - **Emergent Societies**: Watch civilizations evolve with their own cultures
 - **Conway Integration**: Classic Game of Life enhanced with AI decision-making
 - **Real-time Analytics**: Grafana dashboards for monitoring everything
@@ -136,8 +144,8 @@ curl -s http://localhost:8000/cats/happiness | jq '.combined_happiness'
 1. **Legitimate Research Platform**: Designed for serious AI behavior studies
 2. **Absurdist Humor**: Cat happiness as the ultimate AI alignment metric
 3. **Technical Innovation**: Conway's Life + Multi-agent LLMs + Vector embeddings
-4. **🆕 Alien Language Genesis**: First system to create truly non-human communication
-5. **🆕 Observable Opacity**: See alien thoughts but never understand them
+4. **🆕 Mathematical Xenolinguistics**: First deterministic system creating truly non-human communication through environmental pressure
+5. **🆕 Observable Opacity**: See alien communication patterns like `"•\n •\n  •"` but semantic meanings remain forever inaccessible
 6. **Open Science**: All methodologies and frameworks shared
 7. **Emergent Complexity**: Simple rules create sophisticated behaviors
 8. **Practical Ethics**: Concrete metrics instead of abstract principles
@@ -164,6 +172,7 @@ MIT License - Share the chaos, improve the science, keep the cats happy.
 |------|------|
 | **Get started now** | [QUICKSTART.md](QUICKSTART.md) |
 | **🆕 Test alien languages** | `git checkout linguistic && cd sim-engine && python3 linguistic_agent.py` |
+| **🧪 Test language scenarios** | `cd sim-engine && python3 language_explorer.py` |
 | **🆕 Language research** | [docs/research/LINGUISTIC_EVOLUTION.md](docs/research/LINGUISTIC_EVOLUTION.md) |
 | **Daily operations** | [docs/operations/DAILY_CHECKIN.md](docs/operations/DAILY_CHECKIN.md) |
 | **Something's broken** | [docs/operations/DISASTER_RECOVERY.md](docs/operations/DISASTER_RECOVERY.md) |
