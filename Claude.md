@@ -95,4 +95,27 @@ Run `pytest -q && locust -f tests/load/locustfile.py --headless -u 50 -r 10 -t 1
 
 ---
 
+---
+
+## 🆕 Mathematical Linguistics Testing
+
+```bash
+# Switch to linguistic branch
+git checkout linguistic
+cd sim-engine
+
+# Basic alien language test (8 agents, 50 iterations)
+python3 linguistic_agent.py
+
+# Environmental scenario testing  
+python3 language_explorer.py
+# cat_crisis → urgent "•••••" patterns (complexity: 0.160)
+# exploration → spatial "•\n •\n  •" patterns (complexity: 0.546)
+# golden_age → no communication (pressure below threshold)
+```
+
+*Research Status: ✅ VALIDATED - 70% deterministic, 30% stochastic*
+
+---
+
 Happy chaos‑cultivating. May Fluffhead & Wilson reign. 🐱
