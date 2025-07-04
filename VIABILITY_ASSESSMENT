@@ -1,0 +1,175 @@
+# VIABILITY_ASSESSMENT.md
+
+Concise sanity‑check of the Agentic Game of Life – Cat‑Centric Edition.
+
+---
+
+## 1 · Technical Viability  ✔︎ rock‑solid
+
+| Component | Status | Notes |
+|-----------|--------|-------|
+| PostgreSQL + JSONB | ✅ | Enterprise‑proven storage |
+| Ollama models | ✅ | Run locally or scale with GPUs |
+| FastAPI (Python) | ✅ | Lightweight, async‑friendly |
+| Docker Compose | ✅ | One‑line local + cloud deploy |
+| Vector embeddings | ✅ | Mature open‑source stack |
+| ChatGPT Vision API | ✅ | ≈ $0.01 / cat image |
+| Grafana + Prometheus | ✅ | Standard observability |
+| three.js viz | ✅ | Browser‑native 3‑D |
+
+Risk level: Low – every part is shipping today.
+
+---
+
+## 2 · Economic Viability  ≈ $110 / month
+
+| Item | Est. cost (USD) |
+|------|----------------|
+| VPS / cloud node | 50 |
+| Ollama inference | 30 |
+| ChatGPT Vision (600 imgs) | 20 |
+| Domain / DNS | 10 |
+| Total | 110 |
+
+### Revenue paths
+
+Viral content ad‑share
+AI consulting leads
+Conference talks / workshops
+Book or Substack deal (“I Built Agents for My Cats”)
+ROI window: 3‑6 months if content gains traction.
+
+---
+
+## 3 · Market Viability  perfect timing
+
+AI‑agent frameworks are VC‑hot 🔥
+Conway nostalgia drives clicks 📈
+Cat content remains unbeatable 🐱
+Absurdist tech → high engagement
+---
+
+## 4 · Development Viability
+
+Weekend MVP (32 h)
+
+Wknd 1: DB schema · Conway core · Ollama hook · /media endpoint
+Wknd 2: Personality system · minimal UI · Docker deploy · Grafana
+Full production polish: ~2‑3 months part‑time.
+
+---
+
+## 5 · Social‑Media Viability
+
+| Week | Headline hook |
+|------|---------------|
+| 1 | Agents accidentally draw pentagram |
+| 2 | Cat‑serving agents invent a language |
+| 3 | Digital feudalism emerges |
+| 4 | Agents start translating thoughts |
+| 5+ | Infinite emergent weirdness |
+
+---
+
+## 6 · Research / Academic Value
+
+Multi‑agent communication
+Cat‑centric ethics as constitutional law
+Digital‑natalism vs. bio‑natalism economics
+Human‑AI co‑flourishing studies
+Potential papers & conference slots.
+
+---
+
+## 7 · Risk Snapshot
+
+| Vector | Level | Mitigation |
+|--------|-------|------------|
+| Tech complexity | Low | Use proven libs |
+| Market interest | Minimal risk | Cats + AI |
+| Burn rate | Low | < $4/day |
+| Reputational | Positive | Seen as creative |
+
+Worst‑case: fun project + skills gained.  
+Best‑case: viral hit + new income streams.
+
+---
+
+## 8 · “Wei Test” – Personal Fit
+
+ADHD‑hyperfocus friendly ✅
+Deep philosophical angles ✅
+Technical enough to stay fun ✅
+Cat integration front‑and‑centre ✅
+Infinite thread material ✅
+Clear monetisation upside ✅
+---
+
+## 9 · Verdict   Build it now.
+
+Low cost, low risk, high upside, perfect personal fit. Begin with the weekend MVP; iterate toward full production. Let the cats lead the way. 🐱🚀
+
+# ETHNOGRAPHY_WORKFLOW.md
+
+Field‑notes for treating the simulation as a live performance / digital‑ethnography project.
+
+---
+
+## 1 · Observation Loop
+
+| Step | Tool | Output |
+|------|------|--------|
+| 1 | Grafana live dashboard | Identify odd spikes / emergent events |
+| 2 | /metrics/export API | Pull JSON snapshot (generation, behaviours) |
+| 3 | Notebook (polars/pandas) | Quick pivot‑table → surface patterns |
+| 4 | Ethno note commit | Append to docs/findings/YYYY‑MM‑DD.md |
+| 5 | Post excerpt to Threads | Drive chaos → views (PD‑7 feedback) |
+
+---
+
+## 2 · Note Template  (docs/findings/DATE.md)
+
+### Event
+Agents formed **pentagram** at gen 243
+
+### Metrics
+cooperation_index ↓ 0.12  
+innovation_events ↑ 3  
+
+### Hypothesis
+Symbol emerged from guardian risk‑balancing vs creator noise.
+
+### Cultural read
+Echoes 1970s techno‑occult aesthetics → leverage for meme thread.
+
+### Action
+Post GIF + brief decode; tag #AIEthnography #CatFeudalism
+---
+
+## 3 · RAG‑enabled Quantified‑Self
+
+Personal data events land in personal_data_events.
+Weekly feed_agents_weekly() reveals progressive layers.
+Agents produce decoded insight logs → stored in agent_decisions (decision_context.insight).
+Cron job summarizes top‑N insights; appends to daily findings file.
+---
+
+## 4 · Posting Pipeline (fast)
+
+markdown → md-to-thread.py → Threads API
+md‑to‑thread.py chunks markdown, embeds alt‑text if image present, pushes scheduled posts.
+
+---
+
+## 5 · Feedback Metrics
+
+| KPI | Source | Goal |
+|-----|--------|------|
+| Thread views | Threads analytics csv | 250 k / month |
+| Revenue | Patreon/Ko‑fi API | ≥ op‑ex + GPU budget |
+| New followers | Threads | +15 % / month |
+| Cat happiness | daily_cat_content | ≥ 0.9 |
+
+---
+
+Last updated 2025‑07‑04

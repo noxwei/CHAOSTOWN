@@ -1,0 +1,336 @@
+# CHAOSTOWN - Cat-Centric AI Civilization
+# Protecting privacy while sharing the chaos
+
+# ==============================================================================
+# Environment & Secrets
+# ==============================================================================
+.env
+.env.local
+.env.production
+.env.staging
+*.key
+*.pem
+secrets/
+config/secrets.yml
+
+# Personal information - keep the mystery alive
+personal/
+private/
+sensitive/
+preread.md
+personal_*.md
+wei_*.md
+maybe_foucault_*
+
+# API Keys & Credentials
+openai_key.txt
+*_api_key*
+*_secret*
+*_token*
+credentials.json
+auth.json
+
+# Cat photos (for privacy - use placeholder cats in repo)
+cat_media/personal/
+cat_media/fluffhead/
+cat_media/wilson/
+*.jpg
+*.jpeg
+*.png
+*.gif
+*.webp
+# But allow example/placeholder cats
+!docs/examples/placeholder_*.jpg
+!assets/example_cats/
+
+# ==============================================================================
+# Development & Build
+# ==============================================================================
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Node.js / Frontend
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+package-lock.json
+yarn.lock
+
+# Build outputs
+out/
+.next/
+.nuxt/
+dist/
+build/
+
+# ==============================================================================
+# Data & Logs
+# ==============================================================================
+# Simulation data - contains agent personalities and decisions
+data/
+logs/
+*.log
+*.log.*
+simulation_data/
+agent_data/
+experiments/*/data/
+backups/
+dumps/
+
+# Database files
+*.db
+*.sqlite
+*.sqlite3
+postgres_data/
+timescale_data/
+
+# Vector embeddings - these get large
+embeddings/
+*.pkl
+*.pickle
+vector_cache/
+
+# ==============================================================================
+# Docker & Infrastructure
+# ==============================================================================
+# Docker volumes and runtime data
+docker-data/
+volumes/
+grafana_data/
+prometheus_data/
+ollama_data/
+
+# Temporary container files
+.dockerignore.bak
+docker-compose.override.yml
+docker-compose.local.yml
+
+# ==============================================================================
+# IDE & Editor
+# ==============================================================================
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# Jupyter notebooks with sensitive outputs
+*.ipynb_checkpoints/
+experiments/*.ipynb
+
+# ==============================================================================
+# Testing & Coverage
+# ==============================================================================
+.coverage
+.pytest_cache/
+.tox/
+htmlcov/
+.nyc_output/
+coverage/
+test-results/
+.coverage.*
+
+# ==============================================================================
+# Documentation - Generated Files
+# ==============================================================================
+# Keep source docs, ignore generated
+docs/_build/
+docs/api/generated/
+site/
+
+# Report outputs that might contain sensitive data
+reports/personal/
+reports/detailed_agent_analysis/
+performance_reports/production/
+
+# ==============================================================================
+# Backup & Archive
+# ==============================================================================
+*.tar.gz
+*.zip
+*.rar
+*.7z
+backup_*
+archive_*
+old_*
+deprecated_*
+
+# ==============================================================================
+# Monitoring & Metrics
+# ==============================================================================
+# Real metrics might reveal system details
+metrics/production/
+monitoring/alerts/
+.grafana/
+prometheus.yml.local
+
+# ==============================================================================
+# Research & Experiments
+# ==============================================================================
+# Keep methodology public, data private
+experiments/*/raw_data/
+experiments/*/personal_analysis/
+research/private/
+papers/draft_*
+analysis/confidential/
+
+# Large model files
+models/
+*.model
+*.bin
+ollama_models/
+
+# ==============================================================================
+# Fun Exceptions - Keep the Chaos Visible
+# ==============================================================================
+# Allow example configurations
+!examples/
+!templates/
+!docs/examples/
+
+# Allow placeholder/demo content
+!assets/demo/
+!mock_data/
+!sample_configs/
+
+# Keep the philosophical musings (redacted)
+# Keep the technical architecture docs
+# Keep the cat-centric ethical framework
+# Keep the emergent behavior documentation
+
+# ==============================================================================
+# Additional Exclusions for ADHD Coding Sessions
+# ==============================================================================
+# Wei's tendency to create random files at 3am
+random_*.py
+test_*.py
+temp_*.md
+experimental_*
+wei_was_here_*
+definitely_not_production_*
+
+# Hyperfocus artifacts
+.infinite_loop_detector
+.reminder_to_sleep.txt
+.edibles_timer
+coding_session_notes_*.txt
+
+# ==============================================================================
+# Security - Block Common Mistake Patterns
+# ==============================================================================
+# Accidentally committed keys/passwords
+*password*
+*secret*
+*key*
+*token*
+# But allow documentation files about these concepts
+!docs/*password*.md
+!docs/*security*.md
+!*_documentation.md
+
+# Real database connection strings
+database_url*
+connection_string*
+postgres://*
+redis://*
+
+# Personal identifiers
+real_name*
+address*
+phone*
+email_private*
+ssn*
+credit_card*
+
+# ==============================================================================
+# Platform Specific
+# ==============================================================================
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon?
+
+# Windows  
+Desktop.ini
+ehthumbs.db
+*.lnk
+
+# Linux
+*~
+.directory
+
+# ==============================================================================
+# Custom CHAOSTOWN Exclusions
+# ==============================================================================
+# Agent consciousness emergence data (if it happens)
+consciousness_logs/
+sentience_indicators/
+agent_self_reports/
+
+# Real cat behavioral data (privacy for Fluffhead & Wilson)
+fluffhead_actual_schedule.json
+wilson_real_preferences.json
+cat_health_records/
+
+# Creator financial data (Prime Directive 7 implementation)
+revenue_tracking/
+financial_reports/
+creator_sustainability_metrics/
+
+# Production deployment secrets
+production_env/
+staging_secrets/
+live_api_keys/
+
+# Research collaboration embargoed data
+embargoed_research/
+patent_pending/
+confidential_collaborations/
+
+# ==============================================================================
+# Educational Note
+# ==============================================================================
+# This .gitignore protects personal data while keeping the project
+# structure, methodology, and technical innovation visible.
+# 
+# The goal is to share:
+# - Technical architecture and innovation
+# - Cat-centric ethical framework 
+# - Emergent AI behavior research methodology
+# - Philosophical approach to AI safety
+# - Conway's Game of Life + AI integration
+# - Multi-agent system design patterns
+#
+# While protecting:
+# - Personal information and photos
+# - API keys and credentials  
+# - Actual simulation data
+# - Financial/health information
+# - Production deployment details
+#
+# "Share the chaos, protect the cats" 🐱‍💻
