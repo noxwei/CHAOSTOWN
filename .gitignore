@@ -287,6 +287,15 @@ ehthumbs.db
 .directory
 
 # ==============================================================================
+# Meta-Documentation & AI Development
+# ==============================================================================
+# Inner monologue files (meta-cognitive debug logs)
+claude_inner_monologue.json
+*_inner_monologue.json
+ai_thought_logs/
+consciousness_debug/
+
+# ==============================================================================
 # Custom CHAOSTOWN Exclusions
 # ==============================================================================
 # Agent consciousness emergence data (if it happens)
